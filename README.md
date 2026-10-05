@@ -1,1 +1,1 @@
-# jstqb-exam
+# maruken-exam
