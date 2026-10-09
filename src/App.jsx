@@ -11,7 +11,7 @@ const SHEET_NAME = 'questions';
 // （未記入・不正な値の場合はデフォルト値を使用）
 const DEFAULT_QUESTION_COUNT = 10;
 
-const JSTQBExam = () => {
+const ExamApp = () => {
   // =========================================
   // State管理
   // phase: 'select' | 'loading' | 'error' | 'home' | 'quiz' | 'results'
@@ -890,4 +890,4 @@ const SelectScreen = ({ listLoading, listError, spreadsheetList, onSelect, build
   );
 };
 
-export default JSTQBExam;
+export default ExamApp;
