@@ -744,9 +744,24 @@ const JSTQBExam = () => {
             }`}>
               {isAnswerCorrect ? '✓ Correct' : 'Answer'}
             </p>
-            <p className="text-slate-300 text-sm leading-relaxed whitespace-pre-wrap mb-3">
-              {question.explanation}
-            </p>
+              <p className="text-slate-300 text-sm leading-relaxed whitespace-pre-wrap mb-3">
+                {question.explanation.split(/(https?:\/\/[^\s\n]+)/g).map((part, i) => {
+                  if (part.match(/^https?:\/\//)) {
+                    return (
+                      <a
+                        key={i}
+                        href={part}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-indigo-400 hover:text-indigo-300 underline break-all ml-1"
+                      >
+                        {part}
+                      </a>
+                    );
+                  }
+                  return part;
+                })}
+              </p>
             <p className="text-xs text-slate-500">
               正解:{' '}
               {correctPositionsInDisplay.map((displayIdx, i) => (
